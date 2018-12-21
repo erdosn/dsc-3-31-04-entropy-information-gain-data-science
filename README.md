@@ -43,7 +43,7 @@ We know the target variable since we are using a supervised approach having a tr
 
 <img src="split.png" width=500>
 
-We can see that the split has not __FULLY__ classified the data above, but the resulting data is __tidier__ than it was before the split. Using a series of such splits using different feature variables, we try to clean up the data as much as possible in the leaf nodes. At each step, we want to decrease the entropy, so __entropy is computed before after the split__. If it decreases, the split is retained and we can proceed to the next step, otherwise, we must try to split with another feature or stop this branch (or quit, calling it best solution).
+We can see that the split has not __FULLY__ classified the data above, but the resulting data is __tidier__ than it was before the split. Using a series of such splits using different feature variables, we try to clean up the data as much as possible in the leaf nodes. At each step, we want to decrease the entropy, so __entropy is computed before and after the split__. If it decreases, the split is retained and we can proceed to the next step, otherwise, we must try to split with another feature or stop this branch (or quit, calling it best solution).
 
 
 
@@ -54,8 +54,10 @@ if we have a sample containing $N$ items falling into two categories, $n$ observ
 So what we want to do is group these observations according to the target class they belong to. We can write 
 down the ratio of each class as:
 
+$$ n + m = N$$ 
 
-$$p = n/N - (class 1)$$ $$q = m/N = 1-p - (class 2)$$
+
+$$p = n/N \rightarrow (class 1)$$ $$q = m/N = 1-p \rightarrow (class 2)$$
 
 Based on this , the entropy of the complete dataset, before the split is calculated as:
 
